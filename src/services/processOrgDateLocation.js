@@ -1,5 +1,5 @@
 'use strict'
-const sequelizeService = require('./sequelizeService');
+const {OrgDateLocation} = require('../models');
 
 const city = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", 
 "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
@@ -7,7 +7,8 @@ const city = ["서울", "부산", "대구", "인천", "광주", "대전", "울�
 exports.pusher = async function(sheet) {
     let rows = sheet.getSheetValues();
     let records = new Array();
-
+    
+    //excel -> array
     for(let i=2; i<rows.length-4; i++) {
         for(let j=4; j<rows[i].length; j++){
             let array = new Array();
@@ -20,5 +21,26 @@ exports.pusher = async function(sheet) {
         }
     }
 
-    return sequelizeService.insertOrgDateLocation(records);
+    //array -> insert db
+    return insertDatabase(records)
+
 };
+
+async function insertDatabase(records) {
+    for(let data of records){
+        try{
+            await OrgDateLocation.create({
+                city: data[0],
+                inoculationNum: data[1],
+                date: data[2],
+                institution: data[3]
+
+            });
+        }catch(err){
+            console.error(err);
+            return false;
+        }
+    }
+
+    return true;
+}
