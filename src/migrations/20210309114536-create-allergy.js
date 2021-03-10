@@ -11,26 +11,26 @@ module.exports = {
       company: {
         type: Sequelize.STRING
       },
-      slightIllness: {
+      slight_illness: {
         type: Sequelize.INTEGER
       },
-      seriousIllness: {
+      serious_illness: {
         type: Sequelize.INTEGER
       },
-      deathNum: {
+      death_num: {
         type: Sequelize.INTEGER
       },
-      anaphylaxisNum: {
+      anaphylaxis_num: {
         type: Sequelize.INTEGER
       },
       date: {
         type: Sequelize.DATE
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }

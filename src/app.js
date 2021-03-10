@@ -21,11 +21,14 @@ const Excel = require('exceljs');
 
     const isSucessList = [false, false, false, false];
 
-    // isSucessList[0] = processDateLocation.pusher(dateLocationSheet);
-
-    // isSucessList[1] = processOrgDateLocation.pusher(orgDateLocationSheet);
-
-    // isSucessList[2] = processOrgLocation.pusher(orgLocationSheet);
-
+    isSucessList[0] = processDateLocation.pusher(dateLocationSheet);
+    isSucessList[1] = processOrgDateLocation.pusher(orgDateLocationSheet);
+    isSucessList[2] = processOrgLocation.pusher(orgLocationSheet);
     isSucessList[3] = processAllergy.pusher(allergySheet);
+
+    for(let i=0; i<isSucessList.length;i++){
+        if(!isSucessList[i])
+            console.log(workbook.worksheets[i] + "Fail insert data in database");
+    }
+
 })();

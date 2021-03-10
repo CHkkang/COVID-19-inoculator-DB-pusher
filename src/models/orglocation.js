@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     inoculationNum: DataTypes.INTEGER
   }, {
     sequelize,
+    underscored: true,
     modelName: 'OrgLocation',
     tableName: 'org_locations'
   });

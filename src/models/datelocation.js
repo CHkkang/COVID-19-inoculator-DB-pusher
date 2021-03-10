@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.DATE
   }, {
     sequelize,
+    underscored: true,
     modelName: 'DateLocation',
     tableName: 'date_locations'
   });

@@ -14,17 +14,17 @@ module.exports = {
       institution: {
         type: Sequelize.STRING
       },
-      inoculationNum: {
+      inoculation_num: {
         type: Sequelize.INTEGER
       },
       date: {
         type: Sequelize.DATE
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
