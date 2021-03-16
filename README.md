@@ -1,6 +1,5 @@
 # COVID-19-inoculator-DB-pusher
-
-## 코로나19 접종자 데이터(excel) -> Database
+> 코로나19 접종자 데이터(excel) -> Database
 
 ## 개발환경
 * nodeJS v12.20.0
